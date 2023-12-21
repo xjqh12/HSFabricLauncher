@@ -3323,6 +3323,7 @@ input:checked + .toggleSwitchSlider:before {
 * * */
 
 /* Button which opens the news view. */
+/*
 #newsButton {
     background: none;
     border: none;
@@ -3351,9 +3352,9 @@ input:checked + .toggleSwitchSlider:before {
 #newsButton:disabled #newsButtonSVG .arrowLine {
     stroke: rgba(255, 255, 255, 0.75);
 }
-
+*/
 /* Icon which indicates there is new news. */
-#newsButtonAlert {
+/*#newsButtonAlert {
     width: 5px;
     height: 5px;
     position: absolute;
@@ -3361,17 +3362,17 @@ input:checked + .toggleSwitchSlider:before {
     background: red;
     right: -1px;
     top: 50%;
-}
+}*/
 
 /* Arrow image which floats above the news button. */
-#newsButtonSVG {
+/*#newsButtonSVG {
     height: 11px;
     margin-left: -2px;
     transition: 0.25s ease;
-}
+}*/
 
 /* Span which contains the news button text. */
-#newsButtonText {
+/*#newsButtonText {
     color: white;
     font-weight: 900;
     letter-spacing: 2px;
@@ -3380,7 +3381,7 @@ input:checked + .toggleSwitchSlider:before {
     line-height: 30px;
     display: flex;
     transition: 0.25s ease;
-}
+}*/
 
 /* * *
 * Landing View (Bottom Styles) | Right Content

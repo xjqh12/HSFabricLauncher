@@ -704,7 +704,7 @@ function slide_(up){
 }
 
 // Bind news button.
-document.getElementById('newsButton').onclick = () => {
+/*document.getElementById('newsButton').onclick = () => {
     // Toggle tabbing.
     if(newsActive){
         $('#landingContainer *').removeAttr('tabindex')
@@ -721,7 +721,7 @@ document.getElementById('newsButton').onclick = () => {
     }
     slide_(!newsActive)
     newsActive = !newsActive
-}
+}*/
 
 // Array to store article meta.
 let newsArr = null
@@ -793,10 +793,10 @@ let newsAlertShown = false
 /**
  * Show the news alert indicating there is new news.
  */
-function showNewsAlert(){
+/*function showNewsAlert(){
     newsAlertShown = true
     $(newsButtonAlert).fadeIn(250)
-}
+}*/
 
 async function digestMessage(str) {
     const msgUint8 = new TextEncoder().encode(str)
@@ -909,6 +909,7 @@ async function initNews(){
  * between articles. If you are on the landing page, the up arrow will
  * open the news UI.
  */
+/*
 document.addEventListener('keydown', (e) => {
     if(newsActive){
         if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
@@ -927,7 +928,7 @@ document.addEventListener('keydown', (e) => {
         }
     }
 })
-
+*/
 /**
  * Display a news article on the UI.
  * 
