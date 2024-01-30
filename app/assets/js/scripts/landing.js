@@ -734,7 +734,7 @@ let newsLoadingListener = null
  * 
  * @param {boolean} val True to set loading animation, otherwise false.
  */
-function setNewsLoading(val){
+/*function setNewsLoading(val){
     if(val){
         const nLStr = Lang.queryJS('landing.news.checking')
         let dotStr = '..'
@@ -753,23 +753,23 @@ function setNewsLoading(val){
             newsLoadingListener = null
         }
     }
-}
+}*/
 
 // Bind retry button.
-newsErrorRetry.onclick = () => {
+/*newsErrorRetry.onclick = () => {
     $('#newsErrorFailed').fadeOut(250, () => {
         initNews()
         $('#newsErrorLoading').fadeIn(250)
     })
-}
+}*/
 
-newsArticleContentScrollable.onscroll = (e) => {
+/*newsArticleContentScrollable.onscroll = (e) => {
     if(e.target.scrollTop > Number.parseFloat($('.newsArticleSpacerTop').css('height'))){
         newsContent.setAttribute('scrolled', '')
     } else {
         newsContent.removeAttribute('scrolled')
     }
-}
+}*/
 
 /**
  * Reload the news without restarting.
@@ -815,7 +815,7 @@ async function digestMessage(str) {
  * @returns {Promise.<void>} A promise which resolves when the news
  * content has finished loading and transitioning.
  */
-async function initNews(){
+/*async function initNews(){
 
     setNewsLoading(true)
 
@@ -902,7 +902,7 @@ async function initNews(){
     }
 
 
-}
+}*/
 
 /**
  * Add keyboard controls to the news UI. Left and right arrows toggle

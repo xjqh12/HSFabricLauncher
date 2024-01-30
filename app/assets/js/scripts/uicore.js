@@ -49,7 +49,10 @@ if(!isDev){
                 loggerAutoUpdater.info('New update available', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/xjqh12/HSFabricLauncher/releases/download/v${info.version}/HSFabricLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
+                    info.darwindownload = `https://github.com/xjqh12/HSFabricLauncher/releases/download/${info.version}/HSFabricLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
+                    showUpdateUI(info)
+                } else if(process.platform === 'win32'){
+                    info.darwindownload = `https://github.com/xjqh12/HSFabricLauncher/releases/download/${info.version}/HSFabricLauncher-setup-${info.version}.exe`
                     showUpdateUI(info)
                 }
                 
