@@ -58,7 +58,7 @@ function getCurrentView(){
 }
 
 async function showMainUI(data){
-
+console.log("showMainUI = " + isDev)
     if(!isDev){
         loggerAutoUpdater.info('Initializing..')
         ipcRenderer.send('autoUpdateAction', 'initAutoUpdater', ConfigManager.getAllowPrerelease())
@@ -135,7 +135,7 @@ function showFatalStartupError(){
 function onDistroRefresh(data){
     updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
     refreshServerStatus()
-    initNews()
+    //initNews()
     syncModConfigurations(data)
     ensureJavaSettings(data)
 }

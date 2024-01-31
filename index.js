@@ -18,7 +18,7 @@ LangLoader.setupLanguage()
 
 // Setup auto updater.
 function initAutoUpdater(event, data) {
-
+    console.log("initAutoUpdater")
     if(data){
         autoUpdater.allowPrerelease = true
     } else {
@@ -52,6 +52,7 @@ function initAutoUpdater(event, data) {
 
 // Open channel to listen for update actions.
 ipcMain.on('autoUpdateAction', (event, arg, data) => {
+    console.log("arg = " + arg)
     switch(arg){
         case 'initAutoUpdater':
             console.log('Initializing auto updater.')

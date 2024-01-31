@@ -4,6 +4,7 @@ const semver = require('semver')
 
 const DropinModUtil  = require('./assets/js/dropinmodutil')
 const { MSFT_OPCODE, MSFT_REPLY_TYPE, MSFT_ERROR } = require('./assets/js/ipcconstants')
+const { log } = require('console')
 
 const settingsState = {
     invalid: new Set()
@@ -1457,21 +1458,13 @@ function populateReleaseNotes(){
         success: (data) => {
             const version = remote.app.getVersion()
             const entries = $(data).find('entry')
-            
-            for(let i=0; i<entries.length; i++){
-                const entry = $(entries[i])
-                let id = entry.find('id').text()
-                id = id.substring(id.lastIndexOf('/')+1)
-
-                if(id === version){
-                    settingsAboutChangelogTitle.innerHTML = entry.find('title').text()
-                    settingsAboutChangelogText.innerHTML = entry.find('content').text()
-                    settingsAboutChangelogButton.href = entry.find('link').attr('href')
-                }
-            }
-
-        },
-        timeout: 2500
+            const entry = $(entries[0])
+            let id = entry.find('id').text()
+            id = id.substring(id.lastIndexOf('/')+1)
+            settingsAboutChangelogTitle.innerHTML = entry.find('title').text()
+            settingsAboutChangelogText.innerHTML = entry.find('content').text()
+            settingsAboutChangelogButton.href = entry.find('link').attr('href')        },
+            timeout: 2500
     }).catch(err => {
         settingsAboutChangelogText.innerHTML = Lang.queryJS('settings.about.releaseNotesFailed')
     })
@@ -1510,6 +1503,9 @@ function settingsUpdateButtonStatus(text, disabled = false, handler = null){
     settingsUpdateActionButton.innerHTML = text
     settingsUpdateActionButton.disabled = disabled
     if(handler != null){
+        console.log("text = " + text)
+        console.log("disabled = " + disabled)
+        console.log("handler = " + handler)
         settingsUpdateActionButton.onclick = handler
     }
 }
@@ -1520,6 +1516,7 @@ function settingsUpdateButtonStatus(text, disabled = false, handler = null){
  * @param {Object} data The update data.
  */
 function populateSettingsUpdateInformation(data){
+    console.log("data2 = " + data)
     if(data != null){
         settingsUpdateTitle.innerHTML = isPrerelease(data.version) ? Lang.queryJS('settings.updates.newPreReleaseTitle') : Lang.queryJS('settings.updates.newReleaseTitle')
         settingsUpdateChangelogCont.style.display = null
@@ -1536,6 +1533,7 @@ function populateSettingsUpdateInformation(data){
         }
     } else {
         settingsUpdateTitle.innerHTML = Lang.queryJS('settings.updates.latestVersionTitle')
+        console.log("settingsUpdateTitle.innerHTML = " + settingsUpdateTitle.innerHTML)
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
         settingsUpdateButtonStatus(Lang.queryJS('settings.updates.checkForUpdatesButton'), false, () => {
@@ -1553,6 +1551,7 @@ function populateSettingsUpdateInformation(data){
  * @param {Object} data The update data.
  */
 function prepareUpdateTab(data = null){
+    console.log("prepareUpdateTab = " + data)
     populateSettingsUpdateInformation(data)
 }
 
